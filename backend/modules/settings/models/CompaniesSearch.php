@@ -1,16 +1,16 @@
 <?php
 
-namespace backend\models;
+namespace backend\modules\settings\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Branches;
+use backend\modules\settings\models\Companies;
 
 /**
- * branchesSearch represents the model behind the search form about `backend\models\Branches`.
+ * CompaniesSearch represents the model behind the search form about `backend\modules\settings\models\Companies`.
  */
-class branchesSearch extends Branches
+class CompaniesSearch extends Companies
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class branchesSearch extends Branches
     public function rules()
     {
         return [
-            [['branch_id'], 'integer'],//将, 'companies_company_id'移除
-            [['branch_name', 'companies_company_id', 'branch_address', 'branch_create_data', 'branch_status'], 'safe'],
+            [['company_id'], 'integer'],
+            [['company_name', 'company_email', 'company_address', 'company_created_date', 'company_status'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class branchesSearch extends Branches
      */
     public function search($params)
     {
-        $query = Branches::find();
+        $query = Companies::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -54,19 +54,16 @@ class branchesSearch extends Branches
             // $query->where('0=1');
             return $dataProvider;
         }
-        
-        $query->joinWith('companiesCompany');
 
         $query->andFilterWhere([
-            'branch_id' => $this->branch_id,
-            //'companies_company_id' => $this->companies_company_id,
-            'branch_create_data' => $this->branch_create_data,
+            'company_id' => $this->company_id,
+            'company_created_date' => $this->company_created_date,
         ]);
 
-        $query->andFilterWhere(['like', 'branch_name', $this->branch_name])
-            ->andFilterWhere(['like', 'branch_address', $this->branch_address])
-            ->andFilterWhere(['like', 'branch_status', $this->branch_status])
-            ->andFilterWhere(['like', 'companies.company_name', $this->companies_company_id]);
+        $query->andFilterWhere(['like', 'company_name', $this->company_name])
+            ->andFilterWhere(['like', 'company_email', $this->company_email])
+            ->andFilterWhere(['like', 'company_address', $this->company_address])
+            ->andFilterWhere(['like', 'company_status', $this->company_status]);
 
         return $dataProvider;
     }

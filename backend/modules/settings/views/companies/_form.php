@@ -5,7 +5,7 @@ use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\Companies */
+/* @var $model backend\modules\settings\models\Companies */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -21,7 +21,6 @@ use dosamigos\datepicker\DatePicker;
 
     <!--<?= $form->field($model, 'company_created_date')->textInput() ?>-->
     
-    
     <?= $form->field($model, 'company_created_date')->widget(
         DatePicker::className(), [
             // inline too, not bad
@@ -33,6 +32,7 @@ use dosamigos\datepicker\DatePicker;
                 'format' => 'yyyy-mm-dd'
             ]
     ]);?>
+    
 
     <?= $form->field($model, 'company_status')->dropDownList([ 'active' => 'Active', 'inactive' => 'Inactive', ], ['prompt' => '']) ?>
 
