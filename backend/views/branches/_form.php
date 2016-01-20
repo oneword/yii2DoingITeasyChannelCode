@@ -22,7 +22,7 @@ use backend\models\Companies;
     <?= $form->field($model,'companies_company_id')->dropDownList(
         ArrayHelper::map(Companies::find()->all(), 'company_id', 'company_name'),
         ['prompt'=>'Please choose company']
-        ); ?>
+     ); ?>
     
 
     <?= $form->field($model, 'branch_name')->textInput(['maxlength' => true]) ?>
