@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
 use yii\helpers\ArrayHelper;
 use backend\models\Companies;
+use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Branches */
@@ -16,21 +17,34 @@ use backend\models\Companies;
     <?php $form = ActiveForm::begin(); ?>
 
     <!--<?= $form->field($model, 'companies_company_id')->textInput() ?>-->
-    
-    
-    
-    <?= $form->field($model,'companies_company_id')->dropDownList(
+    <!--<?= $form->field($model,'companies_company_id')->dropDownList(
         ArrayHelper::map(Companies::find()->all(), 'company_id', 'company_name'),
         ['prompt'=>'Please choose company']
-     ); ?>
+     ); ?>-->
     
-
+    <?=
+        $form->field($model, 'companies_company_id')->widget(Select2::classname(), [
+            'data' => ArrayHelper::map(Companies::find()->all(), 'company_id', 'company_name'),
+            'language' => 'en',
+            'options' => ['placeholder' => 'Select a state ...'],
+            'pluginOptions' => [
+                'allowClear' => true
+            ],
+        ]);
+    ?>
+    
+    
+    
+    
     <?= $form->field($model, 'branch_name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'branch_address')->textInput(['maxlength' => true]) ?>
 
+    
+    
+    
+    
     <!--<?= $form->field($model, 'branch_create_data')->textInput() ?>--> 
-
     <?= $form->field($model, 'branch_create_data')->widget(
         DatePicker::className(), [
             // inline too, not bad
