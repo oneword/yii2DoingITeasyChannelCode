@@ -29,6 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'company_id',
+            'company_start_date',
             'company_name',
             'company_email:email',
             'company_address',

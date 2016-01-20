@@ -13,15 +13,9 @@ use dosamigos\datepicker\DatePicker;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'company_name')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'company_email')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'company_address')->textInput(['maxlength' => true]) ?>
-
-    <!--<?= $form->field($model, 'company_created_date')->textInput() ?>-->
+    <!--<?= $form->field($model, 'company_start_date')->textInput() ?>-->
     
-    <?= $form->field($model, 'company_created_date')->widget(
+    <?= $form->field($model, 'company_start_date')->widget(
         DatePicker::className(), [
             // inline too, not bad
              'inline' => false,
@@ -32,7 +26,27 @@ use dosamigos\datepicker\DatePicker;
                 'format' => 'yyyy-mm-dd'
             ]
     ]);?>
+
+    <?= $form->field($model, 'company_name')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'company_email')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'company_address')->textInput(['maxlength' => true]) ?>
+
+    <!--<?= $form->field($model, 'company_created_date')->textInput() ?>-->
     
+    
+    <?= $form->field($model, 'company_created_date')->widget(
+            DatePicker::className(), [
+                // inline too, not bad
+                 'inline' => false,
+                 // modify template for custom rendering
+                
+                'clientOptions' => [
+                    'autoclose' => true,
+                    'format' => 'yyyy-mm-dd'
+                ]
+        ]);?>
 
     <?= $form->field($model, 'company_status')->dropDownList([ 'active' => 'Active', 'inactive' => 'Inactive', ], ['prompt' => '']) ?>
 

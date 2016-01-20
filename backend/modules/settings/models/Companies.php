@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "companies".
  *
  * @property integer $company_id
+ * @property string $company_start_date
  * @property string $company_name
  * @property string $company_email
  * @property string $company_address
@@ -33,8 +34,8 @@ class Companies extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['company_name', 'company_email', 'company_address', 'company_created_date', 'company_status'], 'required'],
-            [['company_created_date'], 'safe'],
+            [['company_start_date', 'company_name', 'company_email', 'company_address', 'company_created_date', 'company_status'], 'required'],
+            [['company_start_date', 'company_created_date'], 'safe'],
             [['company_status'], 'string'],
             [['company_name', 'company_email', 'company_address'], 'string', 'max' => 100]
         ];
@@ -47,6 +48,7 @@ class Companies extends \yii\db\ActiveRecord
     {
         return [
             'company_id' => 'Company ID',
+            'company_start_date' => 'Company Start Date',
             'company_name' => 'Company Name',
             'company_email' => 'Company Email',
             'company_address' => 'Company Address',
