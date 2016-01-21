@@ -62,7 +62,7 @@ class CompaniesController extends Controller
      */
     public function actionCreate() {
         
-        if (\Yii::$app->user->can('create-company')) {
+        if (Yii::$app->user->can('create-company')) {
             $model = new Companies();
     
             if ($model->load(Yii::$app->request->post())  ) {
