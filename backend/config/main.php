@@ -40,6 +40,24 @@ return [
             ],
         ],
         
+        //邮件
+        'mailer'=>[
+            'class'=>'yii\swiftmailer\Mailer',
+            'useFileTransport'=>false,
+            'transport' => [  
+                'class' => 'Swift_SmtpTransport',  
+                'host' => 'smtp.sina.com',  //每种邮箱的host配置不一样
+                'username' => 'yourmail@sina.com',  
+                'password' => 'yourpassword',  
+                'port' => '25',
+                'encryption' => 'tls',
+             ],
+            'messageConfig'=>[
+                'charset'=>'UTF-8',
+                'from'=>['yourmail@sina.com'=>'Test yii2 send mailer']
+            ],
+        ],
+        //RBAC权限控制
         'authManager'=>[
             'class'=>'yii\rbac\DbManager',
             'defaultRoles'=>['guest'],
