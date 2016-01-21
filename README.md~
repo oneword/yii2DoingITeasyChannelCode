@@ -2,9 +2,18 @@
 由于国内的yii2学习视频太少，所以才有了这个根据youtube的DoingITeasyChannel视频而来的项目。
 
 youtube视频地址：https://www.youtube.com/watch?v=z1xtFbO9jgQ
+
+
 或百度网盘分享：地址：http://pan.baidu.com/s/1o6RW6Jg 密码：vmxi
+
+
 目前已更新至52集
-其中包含了每节课的代码和数据库等内容（sorry，从第10节课开始的，但是包含第10节前面advanced的内容,未包含base的任何东西）。
+
+
+其中包含了每节课的代码和数据库等内容（sorry，从第10节课开始的，但是包含第10节前面advanced的内容,未包含
+
+
+base的任何东西）。
 
 
 
