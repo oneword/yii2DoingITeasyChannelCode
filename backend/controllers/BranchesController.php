@@ -125,4 +125,41 @@ class BranchesController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+    
+    
+    /*
+     * department添加的联动后台
+     */
+    public function actionLists($id){
+        $countBranches=Branches::find()->where(['companies_company_id'=>$id])->count();
+        $branches=Branches::find()->where(['companies_company_id'=>$id])->all();
+        if($countBranches >0){
+            foreach ($branches as $branch){
+                echo "<option value='".$branch->branch_id."'>".$branch->branch_name."</option>";
+            }
+        }else {
+            echo "<option>-</option>";
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
