@@ -10,6 +10,8 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 use yii\web\ForbiddenHttpException;
+use yii\base\Object;
+use backend\models\Branches;
 
 /**
  * CompaniesController implements the CRUD actions for Companies model.
@@ -59,13 +61,16 @@ class CompaniesController extends Controller
      * Creates a new Companies model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
+     * 1、上传文件
+     * 2、将company表单和branch表单放一起
      */
     public function actionCreate() {
         
         if (Yii::$app->user->can('create-company')) {
             $model = new Companies();
+            $branch = new Branches();
     
-            if ($model->load(Yii::$app->request->post())  ) {
+            if ($model->load(Yii::$app->request->post()) && $branch->load(Yii::$app->request->post())  ) {
                 //文件上传
                 $imageName=$model->company_name;
                 $model->file=UploadedFile::getInstance($model, 'file');
@@ -74,10 +79,16 @@ class CompaniesController extends Controller
                 $model->logo='uploads/'.$imageName.'.'.$model->file->extension;
                 $model->save();
                 
+                //保存branch
+                $branch->companies_company_id=$model->company_id;
+                $branch->save();
+                
+                
                 return $this->redirect(['view', 'id' => $model->company_id]);
             } else {
                 return $this->render('create', [
                     'model' => $model,
+                    'branch'=>$branch,
                 ]);
             }
         }else {
