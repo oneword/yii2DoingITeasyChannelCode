@@ -11,7 +11,7 @@ use dosamigos\datepicker\DatePicker;
 
 <div class="companies-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['enableAjaxValidation'=>true]); ?>
 
     <!--<?= $form->field($model, 'company_start_date')->textInput() ?>-->
     

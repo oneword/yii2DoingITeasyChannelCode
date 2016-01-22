@@ -6,8 +6,15 @@ youtube视频地址：https://www.youtube.com/watch?v=z1xtFbO9jgQ
 
 或百度网盘分享：
 
+
 地址：http://pan.baidu.com/s/1o6RW6Jg 密码：vmxi
+
+
+
+
 或：  http://pan.baidu.com/s/1kUoxQJX
+
+
 
 
 目前已更新至52集
