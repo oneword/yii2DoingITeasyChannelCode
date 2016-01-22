@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "2amigos/yii2-date-picker-widget": "*",
-        "kartik-v/yii2-widget-select2": "@dev"
+        "kartik-v/yii2-widget-select2": "@dev",
+        "wbraganca/yii2-dynamicform": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
