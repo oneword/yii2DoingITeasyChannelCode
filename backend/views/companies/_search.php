@@ -15,15 +15,15 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'company_id') ?>
+    <?= $form->field($model, 'globalSearch') ?>
 
-    <?= $form->field($model, 'company_name') ?>
+    <!--<?= $form->field($model, 'company_name') ?>-->
 
-    <?= $form->field($model, 'company_email') ?>
+    <!--<?= $form->field($model, 'company_email') ?>-->
 
-    <?= $form->field($model, 'company_address') ?>
+    <!--<?= $form->field($model, 'company_address') ?>-->
 
-    <?= $form->field($model, 'company_created_date') ?>
+    <!--<?= $form->field($model, 'company_created_date') ?>-->
 
     <?php // echo $form->field($model, 'company_status') ?>
 
