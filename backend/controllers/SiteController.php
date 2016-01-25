@@ -55,13 +55,14 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $lkrValue=Yii::$app->MyComponent->currencyConvert('USD','LKR',100);
-        print_r($lkrValue);
-        //return $this->render('index');
+        //$lkrValue=Yii::$app->MyComponent->currencyConvert('USD','LKR',100);
+        //print_r($lkrValue);
+        return $this->render('index');
     }
 
-    public function actionLogin()
-    {
+    public function actionLogin(){
+        
+        $this->layout='loginLayout';
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
