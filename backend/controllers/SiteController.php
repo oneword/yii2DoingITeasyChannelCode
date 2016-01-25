@@ -55,7 +55,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        Yii::$app->MyComponent->hello();
+        $lkrValue=Yii::$app->MyComponent->currencyConvert('USD','LKR',100);
+        print_r($lkrValue);
         //return $this->render('index');
     }
 
