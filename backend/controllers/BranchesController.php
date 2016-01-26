@@ -99,35 +99,29 @@ class BranchesController extends Controller
         }else {
             throw new ForbiddenHttpException;
         }
-        
-        
     }
     
-    
     /**
-     * 上传excel
+     * 读取excel
      */
     public function actionImportExcel(){
         $inputFile='uploads/branches_file.xlsx';
         
         try {
             $inputFileType=\PHPExcel_IOFactory::identify($inputFile);
-            $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
+            $objReader=\PHPExcel_IOFactory::createReader($inputFileType);
             $objPHPExcel=$objReader->load($inputFile);
         } catch (Exception $e) {
-            die('Error');
+            die('error');
         }
-        $sheet=$objPHPExcel->getSheet(0);
-        $highesRow=$sheet->getHighestRow();
-        $highesColumn=$sheet->getHighestColumn();
-        
-        for ($row=1;$row<= $highesRow;$row++){
-            $rowData=$sheet->rangeToArray('A'.$row.':'.$highesColumn.$row,NULL,TRUE,FALSE);
+        $sheet=$objPHPExcel->getSheet();
+        $highestRow=$sheet->getHighestRow();
+        $highestColumn=$sheet->getHighestColumn();
+        for ($row=1;$row<=$highestRow;$row++){
+            $rowData=$sheet->rangeToArray('A'.$row.':'.$highestColumn.$row,NULL,TRUE,FALSE);
             if ($row==1){
                 continue;
             }
-            echo $row;
-            //echo $rowData[$row][0];die;
             $branch= new Branches();
             $branch_id=$rowData[0][0];
             $branch->companies_company_id=$rowData[0][1];
@@ -138,9 +132,12 @@ class BranchesController extends Controller
             $branch->save();
             print_r($branch->getErrors());
         }
-        die();
+        die('success');
+        
     }
     
+    
+
     /**
      * Updates an existing Branches model.
      * If update is successful, the browser will be redirected to the 'view' page.
