@@ -1,7 +1,9 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+//use yii\grid\GridView;
+use kartik\grid\GridView;
+//use kartik\editable\Editable;
 use yii\widgets\Pjax;
 use yii\bootstrap\Modal;
 use yii\helpers\Url;
@@ -39,10 +41,12 @@ $this->params['breadcrumbs'][] = $this->title;
     
     
 
-    <?php Pjax::begin(['id'=>'branchesGrid']); ?>
+    <?php //Pjax::begin(['id'=>'branchesGrid']); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'export'=>false,
+        'pjax'=>true,
         'rowOptions'=>function ($model){
             if ($model->branch_status=='inactive'){
                 return ['class'=>'danger'];
@@ -56,6 +60,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'companies_company_id',
                 'value'=>'companiesCompany.company_name'
             ],
+            [
+              'class'=>'kartik\grid\EditableColumn',
+                'header'=>'改标题：Branch',
+                'attribute'=>'branch_name',//要修改哪一个字段
+                'value'=>function ($model){
+                    return '我是默认字： '.$model->branch_name;//弹出来后默认显示这个字段的内容
+               }
+            ],
             //'branch_id',
             'companiesCompany.company_name',
             'branch_name',
@@ -66,6 +78,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-    <?php Pjax::end(); ?>
+    <?php //Pjax::end(); ?>
 
 </div>

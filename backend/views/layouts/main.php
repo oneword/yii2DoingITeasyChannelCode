@@ -397,8 +397,7 @@ DashboardAsset::register($this);
         <!-- 在这里写内容 -->
         <div class="row  border-bottom white-bg dashboard-header">
                 <div class="col-sm-12">
-                    <h2>Welcome Amelia</h2>
-                    <small>You have 42 messages and 6 notifications.</small>
+                    
                     <?= $content ?>
                 </div>
         </div>
