@@ -7,6 +7,9 @@ use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 use backend\assets\DashboardAsset;
+use yii\bootstrap\NavBar;
+use yii\bootstrap\Nav;
+use yii\helpers\Url;
 
 DashboardAsset::register($this);
 ?>
@@ -371,18 +374,14 @@ DashboardAsset::register($this);
                         </li>
                     </ul>
                 </li>
-                <!-- 右上角铃铛按钮开始 -->
+                <!-- 右上角铃铛按钮结束 -->
 
                 <li>
-                    <a href="">
-                        <i class="fa fa-sign-out"></i>
-                        <?php 
-                        $menuItems[] = [
-                            'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                            'url' => ['/site/logout'],
-                            'linkOptions' => ['data-method' => 'post']
-                        ];
-                        ?>
+                    <a href="<?php echo Url::toRoute(['site/logout']); ?>" data-method="post">
+                        
+                    
+                    
+                        <i class="fa fa-sign-out"></i> Login out
                     </a>
                 </li>
                 <li>
@@ -876,12 +875,6 @@ DashboardAsset::register($this);
         </div>
         <!-- 点击右上角的三条横线结束 -->
         <!-- page content end -->
-        
-
-
-    <!-- <div class="container">
-        
-    </div>-->
 </div>
 
 
