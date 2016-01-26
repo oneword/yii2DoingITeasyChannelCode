@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
 use yii\helpers\Json;
+use yii\base\Object;
 
 /**
  * BranchesController implements the CRUD actions for Branches model.
@@ -101,7 +102,45 @@ class BranchesController extends Controller
         
         
     }
-
+    
+    
+    /**
+     * 上传excel
+     */
+    public function actionImportExcel(){
+        $inputFile='uploads/branches_file.xlsx';
+        
+        try {
+            $inputFileType=\PHPExcel_IOFactory::identify($inputFile);
+            $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
+            $objPHPExcel=$objReader->load($inputFile);
+        } catch (Exception $e) {
+            die('Error');
+        }
+        $sheet=$objPHPExcel->getSheet(0);
+        $highesRow=$sheet->getHighestRow();
+        $highesColumn=$sheet->getHighestColumn();
+        
+        for ($row=1;$row<= $highesRow;$row++){
+            $rowData=$sheet->rangeToArray('A'.$row.':'.$highesColumn.$row,NULL,TRUE,FALSE);
+            if ($row==1){
+                continue;
+            }
+            echo $row;
+            //echo $rowData[$row][0];die;
+            $branch= new Branches();
+            $branch_id=$rowData[0][0];
+            $branch->companies_company_id=$rowData[0][1];
+            $branch->branch_name=$rowData[0][2];
+            $branch->branch_address=$rowData[0][3];
+            $branch->branch_create_data=date('Y-m-d H:i:s');
+            $branch->branch_status=$rowData[0][4];
+            $branch->save();
+            print_r($branch->getErrors());
+        }
+        die();
+    }
+    
     /**
      * Updates an existing Branches model.
      * If update is successful, the browser will be redirected to the 'view' page.

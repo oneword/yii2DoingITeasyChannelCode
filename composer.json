@@ -23,7 +23,8 @@
         "wbraganca/yii2-dynamicform": "*",
         "philippfrenzel/yii2fullcalendar": "*",
         "kartik-v/yii2-editable": "*",
-        "kartik-v/yii2-grid": "@dev"
+        "kartik-v/yii2-grid": "@dev",
+        "phpoffice/phpexcel": "dev-develop"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
