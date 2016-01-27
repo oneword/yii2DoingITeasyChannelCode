@@ -24,12 +24,12 @@ class DashboardAsset extends AssetBundle
         'css/animate.css',
         'js/plugins/gritter/jquery.gritter.css',
         'css/style.css',
-        //'css/site.css',
+        'css/site.css',
     ];
     public $js = [
         //<!-- Mainly scripts -->
         //'js/jquery-2.1.1.js',
-        'js/bootstrap.min.js',
+        //'js/bootstrap.min.js',//暂时注释，冲突，框架会自己加载一个bootstrap.js，稍后这里在更正
         'js/plugins/metisMenu/jquery.metisMenu.js',
         'js/plugins/slimscroll/jquery.slimscroll.min.js',
         

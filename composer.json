@@ -24,7 +24,9 @@
         "philippfrenzel/yii2fullcalendar": "*",
         "kartik-v/yii2-editable": "*",
         "kartik-v/yii2-grid": "@dev",
-        "phpoffice/phpexcel": "dev-develop"
+        "phpoffice/phpexcel": "*",
+        "kartik-v/yii2-mpdf": "*",
+        "kartik-v/yii2-export": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

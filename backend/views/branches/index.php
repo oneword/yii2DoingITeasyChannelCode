@@ -2,11 +2,13 @@
 
 use yii\helpers\Html;
 //use yii\grid\GridView;
-use kartik\grid\GridView;
+
 //use kartik\editable\Editable;
-use yii\widgets\Pjax;
+//use yii\widgets\Pjax;
 use yii\bootstrap\Modal;
 use yii\helpers\Url;
+use kartik\export\ExportMenu;
+use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\branchesSearch */
@@ -38,6 +40,44 @@ $this->params['breadcrumbs'][] = $this->title;
         Modal::end();
     ?>
     
+    
+    <!-- 下载文件 -->
+    <?php 
+
+
+    $gridColumns = [
+        'companiesCompany.company_name',
+        'branch_name',
+        [
+            'attribute'=>'branch_name',
+            'label'=>'自定义头标题（用branch_name的数据）',
+            'vAlign'=>'middle',
+            'width'=>'500px',
+            'value'=>function ($model, $key, $index, $widget) {
+                return Html::a($model->branch_name, '#', []);
+            },
+            'format'=>'raw'
+        ],
+        'branch_address',
+        'branch_create_data',
+        'branch_status',
+        
+    ];
+    
+    echo ExportMenu::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => $gridColumns,
+        'fontAwesome' => true,
+        'dropdownOptions' => [
+            'label' => 'Export All',
+
+        ]
+    ]);
+
+    
+    
+    
+    ?>
     
     
 
