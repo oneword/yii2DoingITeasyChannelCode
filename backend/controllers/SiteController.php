@@ -26,7 +26,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index','set-cookie','show-cookie'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -53,6 +53,24 @@ class SiteController extends Controller
         ];
     }
 
+    /**
+     * 设置和读取cookie
+     */
+    public function actionSetCookie(){
+        $cookie=new yii\web\Cookie([
+            'name'=>'cookiename',
+            'value'=>'cookievalue',
+        ]);
+        \Yii::$app->getResponse()->getCookies()->add($cookie);
+        
+    }
+    
+    public function actionShowCookie(){
+        if (\Yii::$app->getRequest()->getCookies()->has('cookiename')) {
+            print_r(\Yii::$app->getRequest()->getCookies()->getValue('cookiename'));;
+        }
+    }
+    
     public function actionIndex()
     {
         //$lkrValue=Yii::$app->MyComponent->currencyConvert('USD','LKR',100);
