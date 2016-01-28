@@ -23,6 +23,8 @@ youtube视频地址：https://www.youtube.com/watch?v=z1xtFbO9jgQ
 其中包含了每节课的代码和数据库等内容（sorry，从第10节课开始的，但是包含第10节前面advanced的内容,未包含base的任何东西）。
 
 
+请clone项目后，请执行：composer update 或者 php composer.phar update
+
 
 注意：因第三方扩展库随时会更新、修复，所以composer也许会出现意外情况，请按照composer的错误提示解决，谢谢。
 

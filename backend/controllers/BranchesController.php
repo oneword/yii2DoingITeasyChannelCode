@@ -113,11 +113,11 @@ class BranchesController extends Controller
      * 
      */
     public function actionValidation(){
-//         $model = new Branches();
-//         if (\Yii::$app->request->isAjax && $model->load(\Yii::$app->request->post())){
-//             \Yii::$app->response->format='json';
-//             return ActiveForm::validate($model);
-//         }
+        $model = new Branches();
+        if (\Yii::$app->request->isAjax && $model->load(\Yii::$app->request->post())){
+            \Yii::$app->response->format='json';
+            return ActiveForm::validate($model);
+        }
     }
     /**
      * 读取excel
