@@ -37,6 +37,7 @@ class Branches extends \yii\db\ActiveRecord
             [['companies_company_id'], 'integer'],
             [['branch_create_data'], 'safe'],
             [['branch_status'], 'string'],
+            ['branch_name','unique'],
             [['branch_name', 'branch_address'], 'string', 'max' => 100]
         ];
     }

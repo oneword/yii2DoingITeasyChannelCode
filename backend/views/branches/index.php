@@ -9,6 +9,8 @@ use yii\bootstrap\Modal;
 use yii\helpers\Url;
 use kartik\export\ExportMenu;
 use kartik\grid\GridView;
+use kartik\select2\Select2;
+use yii\base\Widget;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\branchesSearch */
@@ -31,6 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <?php 
         Modal::begin([
+            'options'=>[
+                'tabindex'=>false,//抱歉，因为代码都是跟随视频做的，这个地方视频中没有指明：如果用modal方式，不加这句代码，会出现搜索框有但无法选中的bug，开始我以为是z-index的原因，后来去官网看了一下，原来modal方式要加这句话，“important for Select2 to work properly”，but，我发现，把浏览器的窗口缩小到一定程度，还是会出现无法选中input的情况
+        ],
             'header'=>'<h4> Branches </h4>',
             'id'=>'modal',
             'size'=>'modal-lg',

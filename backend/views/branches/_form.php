@@ -6,6 +6,7 @@ use dosamigos\datepicker\DatePicker;
 use yii\helpers\ArrayHelper;
 use backend\models\Companies;
 use kartik\select2\Select2;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Branches */
@@ -14,7 +15,11 @@ use kartik\select2\Select2;
 
 <div class="branches-form">
 
-    <?php $form = ActiveForm::begin(['id'=>$model->formName()]); ?>
+    <?php $form = ActiveForm::begin([
+        'id'=>$model->formName(),
+        'enableAjaxValidation'=>true,
+        'validationUrl'=>Url::toRoute('branches/validation'),//可以用此url验证rule规则
+    ]); ?>
 
     <!--<?= $form->field($model, 'companies_company_id')->textInput() ?>-->
     <!--<?= $form->field($model,'companies_company_id')->dropDownList(
@@ -26,7 +31,7 @@ use kartik\select2\Select2;
         $form->field($model, 'companies_company_id')->widget(Select2::classname(), [
             'data' => ArrayHelper::map(Companies::find()->all(), 'company_id', 'company_name'),
             'language' => 'en',
-            'options' => ['placeholder' => 'Select a state ...'],
+            'options' => ['placeholder' => 'Select a state ...','style'=>'z-index:10001'],
             'pluginOptions' => [
                 'allowClear' => true
             ],

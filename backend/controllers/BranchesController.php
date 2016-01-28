@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
 use yii\helpers\Json;
 use yii\base\Object;
+use yii\bootstrap\ActiveForm;
 
 /**
  * BranchesController implements the CRUD actions for Branches model.
@@ -84,6 +85,12 @@ class BranchesController extends Controller
         if (Yii::$app->user->can('create-branch')){
             $model = new Branches();
             
+            if (\Yii::$app->request->isAjax && $model->load(\Yii::$app->request->post())){
+                \Yii::$app->response->format='json';
+                return ActiveForm::validate($model);
+            }
+            
+            
             if ($model->load(Yii::$app->request->post()) ) {
                 if ($model->save()){
                     echo 1;
@@ -101,6 +108,17 @@ class BranchesController extends Controller
         }
     }
     
+    
+    /**
+     * 
+     */
+    public function actionValidation(){
+//         $model = new Branches();
+//         if (\Yii::$app->request->isAjax && $model->load(\Yii::$app->request->post())){
+//             \Yii::$app->response->format='json';
+//             return ActiveForm::validate($model);
+//         }
+    }
     /**
      * 读取excel
      */
