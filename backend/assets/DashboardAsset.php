@@ -29,7 +29,7 @@ class DashboardAsset extends AssetBundle
     public $js = [
         //<!-- Mainly scripts -->
         //'js/jquery-2.1.1.js',
-        //'js/bootstrap.min.js',//暂时注释，冲突，框架会自己加载一个bootstrap.js，稍后这里再更正
+        'js/bootstrap.min.js',//暂时注释，冲突，框架会自己加载一个bootstrap.js，稍后这里再更正，好吧，新问题，有的地方不会自带加载这个文件，有的地方会自动加载，hmm……
         'js/plugins/metisMenu/jquery.metisMenu.js',
         'js/plugins/slimscroll/jquery.slimscroll.min.js',
         

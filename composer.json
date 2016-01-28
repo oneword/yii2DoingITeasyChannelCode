@@ -26,7 +26,8 @@
         "kartik-v/yii2-grid": "@dev",
         "phpoffice/phpexcel": "*",
         "kartik-v/yii2-mpdf": "*",
-        "kartik-v/yii2-export": "*"
+        "kartik-v/yii2-export": "*",
+        "perminder-klair/yii2-dropzone": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
