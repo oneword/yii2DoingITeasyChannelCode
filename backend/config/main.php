@@ -83,5 +83,8 @@ return [
             ]
         
     ],
+    'as beforeRequest'=>[
+        'class'=>'backend\components\CheckIfLofgedIn'
+    ],
     'params' => $params,
 ];
