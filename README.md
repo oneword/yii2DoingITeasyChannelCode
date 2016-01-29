@@ -1,39 +1,56 @@
 
 由于国内的yii2学习视频太少，所以才有了这个根据youtube的DoingITeasyChannel视频而来的项目。
 
-youtube视频地址：https://www.youtube.com/watch?v=z1xtFbO9jgQ
 
+youtube视频地址：https://www.youtube.com/watch?v=z1xtFbO9jgQ
 
 或百度网盘分享：
 
+地址：http://pan.baidu.com/s/1o6RW6Jg 密码：vmxi 
 
-地址：http://pan.baidu.com/s/1o6RW6Jg 密码：vmxi
+或 ： http://pan.baidu.com/s/1kUoxQJX
 
+目前已更新至52集，后期如果youtube更新，网盘将同步更新
 
+github地址：https://github.com/oneword/yii2DoingITeasyChannelCode
 
+其中包含了每节课的代码和数据库等内容（sorry，从第10节课开始的，但是包含第10节前面advanced的内容,未包含
 
-或：  http://pan.baidu.com/s/1kUoxQJX
+base的任何东西）。
 
+其中第39、40集的视频所用的后台模板为免费模板，我用的是一个收费模板（虽然我也不是买的），如果谁想使
 
+用，可以发邮件给我。
 
+视频为全套，代码更新至第50集，剩余的两节视频是两种国际化语言设置，希望各位yii developers自己动手写
 
-目前已更新至52集
+完，毕竟不能只看
 
-
-其中包含了每节课的代码和数据库等内容（sorry，从第10节课开始的，但是包含第10节前面advanced的内容,未包含base的任何东西）。
+不写，多写写还是有好处的。
 
 
 请clone项目后，请执行：composer update 或者 php composer.phar update
 
+**注意：视频中用到了大量的第三方扩展库，会导致某些问题：
 
-注意：因第三方扩展库随时会更新、修复，所以composer也许会出现意外情况，请按照composer的错误提示解决，谢谢。
+1、因第三方扩展库随时会更新、修复，所以composer也许会出现新的依赖等意外情况，请按照composer的错误提
 
-
-
-抱歉，第30节视频的代码错误，不能正常运行，所以没有上传，我会在整个视频结束以后，重新验证第30节的视频代码
-
+示解决，谢谢。
 
 
+2、扩展库会自动引入js与css，或许会造成与html模板的js和css冲突，视频中未说明如何解决，如果各位yii 
+
+developers有好的解
+
+决办法，希望你能在回复里贡献你的方法。**
+
+希望大家共同努力，共同学习。
+
+```
+**Congratulations
+
+Have a good day**
+```
 
 
 
