@@ -42,7 +42,23 @@ base的任何东西）。
 
 developers有好的解
 
-决办法，希望你能在回复里贡献你的方法。**
+决办法，希望你能在回复里贡献你的方法。
+
+OK，第二个问题，过了个周末，我找到解决的方法了，在此公布分享出来，在你的配置文件里面写入下面的配置项：
+
+    'components' => [
+        'assetManager' => [
+            'assetMap' => [
+                'bootstrap.js' => '@web/js/bootstrap.min.js',
+            ],
+        ],
+    ]
+
+'bootstrap.js' => '@web/js/bootstrap.min.js'，这句话的意思是页面用到的资源文件bootstrap.js，全部用web目录下面的js目录下面的bootstrap.min.js替换，从而放弃使用bootstrap.js，这样的话，一个页面就只会调用一个bootstrap.min.js了。
+
+其它的具体的属性值可以查看：http://www.yiiframework.com/doc-2.0/yii-web-assetmanager.html
+
+**
 
 希望大家共同努力，共同学习。
 
