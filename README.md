@@ -12,7 +12,6 @@ youtube视频地址：https://www.youtube.com/watch?v=z1xtFbO9jgQ
 
 目前已更新至52集，后期如果youtube更新，网盘将同步更新
 
-github地址：https://github.com/oneword/yii2DoingITeasyChannelCode
 
 其中包含了每节课的代码和数据库等内容（sorry，从第10节课开始的，但是包含第10节前面advanced的内容,未包含
 
